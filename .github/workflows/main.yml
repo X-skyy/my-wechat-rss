@@ -1,0 +1,31 @@
+name: My_Wechat_RSS_Feeder
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 每天北京时间早上 8:00 自动执行一次 (UTC 0:00)
+  workflow_dispatch: # 支持你随时手动点击按钮更新
+
+jobs:
+  generate_rss:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Generate Subscription List
+        run: |
+          # 创建一个简单的 HTML 或 Markdown 页面来保存你的订阅源
+          echo "## 我的公众号订阅列表" > index.md
+          echo "更新时间: $(date)" >> index.md
+          echo "" >> index.md
+          
+          # 生成这三个公众号的 RSSHub 链接 (使用公共实例)
+          # 格式说明：https://rsshub.app/wechat/msghistory/[ID]
+          echo "- [DeNora迪诺拉](https://rsshub.app/wechat/msghistory/DeNoraChina)" >> index.md
+          echo "- [马赫内托特殊阳极](https://rsshub.app/wechat/msghistory/MAGNETOSpecialAnodes)" >> index.md
+          echo "- [钛普锐斯钛阳极](https://rsshub.app/wechat/msghistory/gh_43b9a2c2776b)" >> index.md
+
+      - name: Upload to GitHub Pages
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update RSS Links"
