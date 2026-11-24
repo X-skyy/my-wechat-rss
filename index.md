@@ -1,5 +1,5 @@
 ## 我的公众号订阅列表
-更新时间: Mon Nov 23 05:21:26 UTC 2026
+更新时间: Tue Nov 24 08:00:49 UTC 2026
 
 - [DeNora迪诺拉](https://rsshub.app/wechat/msghistory/DeNoraChina)
 - [马赫内托特殊阳极](https://rsshub.app/wechat/msghistory/MAGNETOSpecialAnodes)
